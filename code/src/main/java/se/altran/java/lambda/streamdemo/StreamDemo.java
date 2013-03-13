@@ -6,7 +6,7 @@ import java.util.streams.Streams;
 
 public class StreamDemo {
     public static void main (String[] args) {
-        int max = Runtime.getRuntime().availableProcessors();
+        int max = 24;
         System.out.format("Checking numbers [1..%d]...%n", max);
         long start = System.nanoTime();
         System.out.format("Odd numbers: %s%n", naturalNumbersUpTo(max).stream().filter(StreamDemo::heavyIsOdd).into(new ArrayList<Integer>()));

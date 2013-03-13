@@ -4,10 +4,7 @@ import se.altran.java.lambda.streams.album.Album;
 import se.altran.java.lambda.streams.album.AlbumCollection;
 import se.altran.java.lambda.streams.album.Rating;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 public class AlbumFinder {
 
