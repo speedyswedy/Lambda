@@ -2,14 +2,13 @@ package se.altran.java.lambda.expresssions;
 
 import static org.junit.Assert.assertTrue;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
 
 import se.altran.java.lambda.expresssions.domain.Person;
+import se.altran.java.lambda.utils.PersonFactory;
 
 public class NetworkingAppTest {
 
@@ -111,17 +110,7 @@ public class NetworkingAppTest {
     }
     
     private List<Person> createPersons() {
-        List<Person> persons = new ArrayList<Person>();
-        LocalDate birthday = LocalDate.now();
-        birthday = birthday.withYear(1974);
-        persons.add(new Person("Åke", birthday, Person.Sex.MALE, "ake@telia.com"));
-        birthday = birthday.withYear(1977);
-        persons.add(new Person("Lars", birthday, Person.Sex.MALE, "lars@telia.com"));
-        birthday = birthday.withYear(1981);
-        persons.add(new Person("Bertil", birthday, Person.Sex.MALE, "bertil@telia.com"));
-        birthday = birthday.withYear(1985);
-        persons.add(new Person("Lisa", birthday, Person.Sex.FEMALE, "lisa@telia.com"));
-        return persons;
+        return PersonFactory.getPersons();
     }
 
 }

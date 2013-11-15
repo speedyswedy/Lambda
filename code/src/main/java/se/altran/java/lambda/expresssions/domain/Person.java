@@ -25,6 +25,10 @@ public class Person {
         return gender;
     }
     
+    public LocalDate getBirthday() {
+        return birthday;
+    }
+    
     public String getEmailAddress() {
         return emailAddress;
     }
@@ -33,6 +37,10 @@ public class Person {
         LocalDate bir =  LocalDate.now();
         int age = bir.getYear() - birthday.getYear();
         return age;
+    }
+    
+    public static int compareByAge(Person a, Person b) {
+        return a.birthday.compareTo(b.birthday);
     }
 
     public void printPerson() {
