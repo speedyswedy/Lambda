@@ -1,14 +1,9 @@
 package se.altran.java.lambda.defaultmethods;
 
-import javafx.scene.control.Button;
-
-
-
 
 public class DefaultMethodsDemo implements Foo, Bar {
 
     public static void main(String[] args) {
-        
     }
 }
 
