@@ -9,6 +9,8 @@ import se.altran.java.lambda.utils.PersonFactory;
 
 public class Company {
     
+    // 1. Instance Method Reference to Arbitrary Objects
+    
     public List<Person> sortEmployeesByAge() {
         
         List<Person> persons = PersonFactory.getPersons();
@@ -63,4 +65,5 @@ public class Company {
         
         return persons;
     }
+    
 }
