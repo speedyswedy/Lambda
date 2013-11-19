@@ -33,11 +33,22 @@ public class Company {
         
         List<Person> persons = PersonFactory.getPersons();
         
-        Collections.sort(persons,
-                (Person a, Person b) -> {
-                    return a.getBirthday().compareTo(b.getBirthday());
-                }
-            );
+        Comparator<Person> myCompare = (Person a, Person b) -> {
+            return a.getBirthday().compareTo(b.getBirthday());
+        };
+        
+        Collections.sort(persons, myCompare);
+        
+        return persons;
+    }
+    
+    public List<Person> sortEmployeesByAge3() {
+        
+        List<Person> persons = PersonFactory.getPersons();
+        
+        Comparator<Person> myCompare = (a, b) -> a.getBirthday().compareTo(b.getBirthday());
+        
+        Collections.sort(persons, myCompare);
         
         return persons;
     }
@@ -45,7 +56,7 @@ public class Company {
     //However, this method to compare the birth dates of two Person 
     //instances already exists as Person.compareByAge.
     
-    public List<Person> sortEmployeesByAge3() {
+    public List<Person> sortEmployeesByAge4() {
         
         List<Person> persons = PersonFactory.getPersons();
         
@@ -57,7 +68,7 @@ public class Company {
     //Because this lambda expression invokes an existing method, you can use a 
     //method reference instead of a lambda expression:
     
-    public List<Person> sortEmployeesByAge4() {
+    public List<Person> sortEmployeesByAge5() {
         
         List<Person> persons = PersonFactory.getPersons();
         

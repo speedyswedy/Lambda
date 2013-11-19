@@ -70,4 +70,17 @@ public class CompanyTest {
             }
         }
     }
+    
+    @Test
+    public void testSortEmployeesByAge5() {
+        List<Person> sortedPersons = company.sortEmployeesByAge5();
+        Person previousPerson = null;
+        for(Person p : sortedPersons) {
+            if (previousPerson == null || Person.compareByAge(p, previousPerson) > 0) {
+                previousPerson = p;
+            } else {
+                fail();
+            }
+        }
+    }
 }
