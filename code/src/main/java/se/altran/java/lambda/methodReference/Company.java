@@ -77,4 +77,15 @@ public class Company {
         return persons;
     }
     
+    //From Java 8, sort() is available directly on List  
+    
+    public List<Person> sortEmployeesByAge6() {
+        
+        List<Person> persons = PersonFactory.getPersons();
+        
+        persons.sort(Person::compareByAge);
+        
+        return persons;
+    }
+    
 }
