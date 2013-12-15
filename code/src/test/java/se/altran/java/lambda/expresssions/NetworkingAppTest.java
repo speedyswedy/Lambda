@@ -35,7 +35,7 @@ public class NetworkingAppTest {
     }
 
     @Test
-    public void testgetPersons() {
+    public void testGetPersons() {
         List<Person> persons = createPersons();
         List<Person> results = app.getAndPrintPersons(persons, new CheckPersonEligibleForSelectiveService());
         assertTrue(results.size() == 2);
@@ -43,7 +43,7 @@ public class NetworkingAppTest {
 
     //Approach 4: Specify Search Criteria Code in an Anonymous Class
     @Test
-    public void testgetPersonsAnonymous() {
+    public void testGetPersonsAnonymous() {
         List<Person> persons = createPersons();
         List<Person> results = app.getAndPrintPersons(persons, new CheckPerson() {
             public boolean test(Person p) {
@@ -58,7 +58,7 @@ public class NetworkingAppTest {
     
    //Approach 5: Specify Search Criteria Code with a Lambda Expression
     @Test
-    public void testgetPersonsLambda() {
+    public void testGetPersonsLambda() {
         List<Person> persons = createPersons();
         //Task 3:
         // Add correct condition, but now use lambda expression
@@ -127,7 +127,7 @@ public class NetworkingAppTest {
     @Test
     public void testGetPersonsWithPredicate() {
         List<Person> persons = createPersons();
-        List<Person> results = app.getAndPrintPersonsWithPredicate(persons, (Person p) -> p.getGender() == Person.Sex.MALE
+        List<Person> results = app.getAndPrintPersonsWithPredicate(persons, p -> p.getGender() == Person.Sex.MALE
                 && p.getAge() >= 36
                 && p.getAge() <= 40
         );
@@ -140,7 +140,7 @@ public class NetworkingAppTest {
     @Test
     public void testProcessPersons() {
         List<Person> persons = createPersons();
-        List<Person> results = app.processPersons(persons, (Person p) -> p.getGender() == Person.Sex.MALE
+        List<Person> results = app.processPersons(persons, p -> p.getGender() == Person.Sex.MALE
                 && p.getAge() >= 36
                 && p.getAge() <= 40,
                 p -> p.printPerson()
