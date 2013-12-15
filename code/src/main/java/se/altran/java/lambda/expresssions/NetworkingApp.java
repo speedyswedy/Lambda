@@ -27,13 +27,31 @@ public class NetworkingApp {
     public List<Person> getAndPrintPersonsWithinAgeRange(List<Person> roster, int low, int high) {
         List<Person> tempRoster = new ArrayList<Person>();
         for (Person p : roster) {
-            if (low <= p.getAge() && p.getAge() < high) {
+            // Task 1:
+            // add new condition here
                 p.printPerson();
                 tempRoster.add(p);
-            }
+           
         }
         return tempRoster;
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     // Approach 3: Specify Search Criteria Code in a Local Class
     public List<Person> getAndPrintPersons(List<Person> roster, CheckPerson tester) {
@@ -46,9 +64,27 @@ public class NetworkingApp {
         }
         return tempRoster;
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     // Approach 6: Use Standard Functional Interfaces with Lambda Expressions
-    public List<Person> getAndPrintPersonsWithPredicate(List<Person> roster, Predicate<Person> tester) {
+    // Task 4:
+    // Change CheckPerson to an already existing function inerface in Java
+    public List<Person> getAndPrintPersonsWithPredicate(List<Person> roster, CheckPerson tester) {
         List<Person> tempRoster = new ArrayList<Person>();
         for (Person p : roster) {
             if (tester.test(p)) {
@@ -58,13 +94,21 @@ public class NetworkingApp {
         }
         return tempRoster;
     }
+    
+    
+    
+    
+    
+    
 
     // Approach 7: Use Lambda Expressions Throughout Your Application
-    public List<Person> processPersons(List<Person> roster, Predicate<Person> tester, Consumer<Person> block) {
+    // Task 5:
+    // Add an existing functional interface as parameter (now a Trams interface is used)
+    public List<Person> processPersons(List<Person> roster, Predicate<Person> tester, Trams<Person> trams) {
         List<Person> tempRoster = new ArrayList<Person>();
         for (Person p : roster) {
             if (tester.test(p)) {
-                block.accept(p);
+                trams.trams(p);
                 tempRoster.add(p);
             }
         }
@@ -101,6 +145,10 @@ public class NetworkingApp {
 
 interface CheckPerson {
     boolean test(Person p);
+}
+
+interface Trams<T> {
+    void trams(T t);
 }
 
 class CheckPersonEligibleForSelectiveService implements CheckPerson {

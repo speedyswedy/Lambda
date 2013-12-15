@@ -2,6 +2,7 @@ package se.altran.java.lambda.expresssions;
 
 import static org.junit.Assert.assertTrue;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Before;
@@ -46,7 +47,10 @@ public class NetworkingAppTest {
         List<Person> persons = createPersons();
         List<Person> results = app.getAndPrintPersons(persons, new CheckPerson() {
             public boolean test(Person p) {
-                return p.getGender() == Person.Sex.MALE && p.getAge() >= 36 && p.getAge() <= 40;
+                //Task 2:
+                // Add correct condition
+                // gender = Person.Sex.MALE and 36 >= age <= 40
+                return false;
             }
         });
         assertTrue(results.size() == 2);
@@ -56,12 +60,69 @@ public class NetworkingAppTest {
     @Test
     public void testgetPersonsLambda() {
         List<Person> persons = createPersons();
-        List<Person> results = app.getAndPrintPersons(persons, (Person p) -> p.getGender() == Person.Sex.MALE
-                && p.getAge() >= 36
-                && p.getAge() <= 40
-        );
+        //Task 3:
+        // Add correct condition, but now use lambda expression
+        List<Person> results = app.getAndPrintPersons(persons, null);
         assertTrue(results.size() == 2);
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     @Test
     public void testGetPersonsWithPredicate() {
@@ -72,6 +133,8 @@ public class NetworkingAppTest {
         );
         assertTrue(results.size() == 2);
     }
+    
+    
     
     // Approach 7: Use Lambda Expressions Throughout Your Application
     @Test
@@ -85,10 +148,15 @@ public class NetworkingAppTest {
         assertTrue(results.size() == 2);
     }
     
+    
+    
+    
+    
+    
     @Test
     public void testProcessPersonsWithFunction() {
         List<Person> persons = createPersons();
-        List<Person> results = app.processPersonsWithFunction(persons, (Person p) -> p.getGender() == Person.Sex.MALE
+        List<Person> results = app.processPersonsWithFunction(persons, p -> p.getGender() == Person.Sex.MALE
                 && p.getAge() >= 36
                 && p.getAge() <= 40,
                 p -> p.getEmailAddress(),
@@ -100,13 +168,25 @@ public class NetworkingAppTest {
     @Test
     public void testProcessElements() {
         List<Person> persons = createPersons();
-        List<Person> results = app.processElements(persons, (Person p) -> p.getGender() == Person.Sex.MALE
+        List<Person> results = app.processElements(persons, p -> p.getGender() == Person.Sex.MALE
                 && p.getAge() >= 36
                 && p.getAge() <= 40,
                 p -> p.getEmailAddress(),
                 email -> System.out.println(email)
         );
         assertTrue(results.size() == 2);
+    }
+    
+    @Test
+    public void testProcessElements2() {
+        List<String> names = new ArrayList<String>();
+        names.add("Pelle");
+        names.add("Mattias");
+        List<String> results = app.processElements(names, n -> n.length() > 5,
+                p -> p.length(),
+                len -> System.out.println(len)
+        );
+        assertTrue(results.size() == 1);
     }
     
     private List<Person> createPersons() {
