@@ -8,7 +8,7 @@ import java.util.function.Predicate;
 
 import se.altran.java.lambda.expresssions.domain.Person;
 
-public class NetworkingAppAll {
+public class NetworkingApp {
 
     // Approach 1: Create Methods That Search for Members That Match One
     // Characteristic
@@ -36,7 +36,7 @@ public class NetworkingAppAll {
     }
 
     // Approach 3: Specify Search Criteria Code in a Local Class
-    public List<Person> getAndPrintPersons(List<Person> roster, CheckPerson2 tester) {
+    public List<Person> getAndPrintPersons(List<Person> roster, CheckPerson tester) {
         List<Person> tempRoster = new ArrayList<Person>();
         for (Person p : roster) {
             if (tester.test(p)) {
@@ -99,11 +99,11 @@ public class NetworkingAppAll {
     }
 }
 
-interface CheckPerson2 {
+interface CheckPerson {
     boolean test(Person p);
 }
 
-class CheckPersonEligibleForSelectiveService2 implements CheckPerson2 {
+class CheckPersonEligibleForSelectiveService implements CheckPerson {
     public boolean test(Person p) {
         return p.getGender() == Person.Sex.MALE && p.getAge() >= 36 && p.getAge() <= 40;
     }

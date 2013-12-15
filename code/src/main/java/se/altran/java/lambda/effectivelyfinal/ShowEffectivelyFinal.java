@@ -5,7 +5,7 @@ public class ShowEffectivelyFinal {
     
     public void test() {
         String str = "";
-        A a = s -> {str = "dummy"; return str;};
+        A a = s -> {String str2 = "dummy"; return str;};
      }
      
  }
