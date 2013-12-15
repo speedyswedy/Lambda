@@ -83,6 +83,7 @@ public class Company {
         
         List<Person> persons = PersonFactory.getPersons();
         
+        // default method on List
         persons.sort(Person::compareByAge);
         
         return persons;
