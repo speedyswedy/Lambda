@@ -9,10 +9,14 @@ public class StreamDemo {
         int max = 24;
         System.out.format("Checking numbers [1..%d]...%n", max);
         long start = System.nanoTime();
+        System.out.println("Sequential");
+        System.out.println("---------------");
         System.out.format("Odd numbers: %s%n", naturalNumbersUpTo(max).stream().filter(StreamDemo::heavyIsOdd).collect(Collectors.<Integer>toList()));
         long end = System.nanoTime();
-        System.out.format("Time taken: %f%n", (end - start) /1.0e9);
+        System.out.format("Time taken: %f%n%n%n", (end - start) /1.0e9);
         start = System.nanoTime();
+        System.out.println("Parallel");
+        System.out.println("---------------");
         System.out.format("Odd numbers: %s%n", naturalNumbersUpTo(max).parallelStream().filter(StreamDemo::heavyIsOdd).collect(Collectors.<Integer>toList()));
         end = System.nanoTime();
         System.out.format("Time taken: %f%n", (end - start) /1.0e9);
